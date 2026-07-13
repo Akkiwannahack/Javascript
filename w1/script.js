@@ -1,0 +1,13 @@
+function greet() {
+    alert("Welc to JSP");
+
+    console.table([
+        {
+            Name: "Sample User",
+            Course: "JS"
+        }
+    ])
+    console.time("Execution");
+    console.timeEnd("Execution");
+
+}

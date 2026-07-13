@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Billing Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f0f4c3 0%, #dce775 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --primary-color: #9e9d24;
+            --primary-hover: #827717;
+            --text-dark: #333322;
+            --text-light: #777766;
+            --border-color: #e6ee9c;
+            --shadow: 0 20px 40px rgba(158, 157, 36, 0.15);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .calculator-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 420px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            box-sizing: border-box;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(158, 157, 36, 0.15);
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 4px 15px rgba(158, 157, 36, 0.3);
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(158, 157, 36, 0.4);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f9fbe7;
+            border-radius: 16px;
+            display: none;
+            border: 1px dashed var(--primary-color);
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .receipt-title {
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .receipt-row.bold {
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: rgba(158, 157, 36, 0.2);
+            margin: 15px 0;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-hover);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer-credit {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator-card">
+        <h2>Billing Calculator</h2>
+
+        <form id="priceForm">
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName" placeholder="e.g. Jane Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" placeholder="e.g. Mechanical Keyboard" required>
+            </div>
+
+            <div class="form-group">
+                <label for="unitPrice">Unit Price (₹)</label>
+                <input type="number" id="unitPrice" placeholder="0.00" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" placeholder="1" min="1" value="1" required>
+            </div>
+
+            <button type="submit">Calculate Bill</button>
+        </form>
+
+        <div class="result" id="resultCard">
+            <div class="receipt-title">Order Receipt</div>
+
+            <div class="receipt-row">
+                <span>Customer:</span>
+                <span id="displayCustomerName" class="bold"></span>
+            </div>
+            <div class="receipt-row">
+                <span>Product:</span>
+                <span id="displayProductName" class="bold"></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="receipt-row">
+                <span>Subtotal:</span>
+                <span id="displaySubtotal"></span>
+            </div>
+            <div class="receipt-row">
+                <span>GST (18%):</span>
+                <span id="displayGST"></span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="receipt-row">
+                <span class="bold">Total Price:</span>
+                <span class="price" id="displayTotalPrice"></span>
+            </div>
+        </div>
+        
+        <div class="footer-credit">Made by Akshat Digalwar</div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="sc.js"></script>
+</body>
+
+</html>
