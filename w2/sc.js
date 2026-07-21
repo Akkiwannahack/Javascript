@@ -1,57 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('priceForm');
-    const resultCard = document.getElementById('resultCard');
-    const displayCustomerName = document.getElementById('displayCustomerName');
-    const displayProductName = document.getElementById('displayProductName');
-    const displaySubtotal = document.getElementById('displaySubtotal');
-    const displayGST = document.getElementById('displayGST');
-    const displayTotalPrice = document.getElementById('displayTotalPrice');
+    // Check if cart has items
+    const cart = JSON.parse(localStorage.getItem('lumi_cart')) || [];
+    const preview = document.getElementById('cartPreview');
+    
+    if (cart.length === 0) {
+        preview.innerHTML = '<span style="color:#ef4444;">Cart is empty. Please add items before checking out.</span>';
+        document.querySelector('button[type="submit"]').disabled = true;
+    } else {
+        const itemsList = cart.map(item => `${item.qty}x ${item.productName} - ₹${item.price * item.qty}`).join('<br>');
+        preview.innerHTML = `<strong>Items in Cart:</strong><br>${itemsList}`;
+    }
 
-    form.addEventListener('submit', function(e) {
-        // Prevent page reload on submit
+    const form = document.getElementById('priceForm');
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Get values using the correct IDs from the HTML
-        let customerName = document.getElementById("customerName").value;
-        let product = document.getElementById("productName").value;
-        let price = Number(document.getElementById("unitPrice").value);
-        let quantity = Number(document.getElementById("quantity").value);
+        const customerName = document.getElementById('customerName').value;
+        const cart = JSON.parse(localStorage.getItem('lumi_cart')) || [];
 
-        const GST = 0.18;
+        if (cart.length === 0) return;
 
-        let subtotal = price * quantity;
-        let gstAmount = subtotal * GST;
-        let total = subtotal + gstAmount;
+        // Generate Order ID and Date
+        const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+        const date = new Date().toLocaleDateString();
 
-        // Destructuring (creating the bill object as requested)
-        const bill = {
-            customerName,
-            product,
-            subtotal,
-            gstAmount,
-            total
-        };
-
-        // Helper function to format INR currency
-        const formatINR = (amount) => {
-            return new Intl.NumberFormat('en-IN', {
-                style: 'currency',
-                currency: 'INR'
-            }).format(amount);
-        };
-
-        // Update the UI
-        displayCustomerName.textContent = bill.customerName;
-        displayProductName.textContent = bill.product + ` (x${quantity})`;
-        displaySubtotal.textContent = formatINR(bill.subtotal);
-        displayGST.textContent = formatINR(bill.gstAmount);
-        displayTotalPrice.textContent = formatINR(bill.total);
-
-        // Reset and trigger show animation for the result card
-        resultCard.classList.remove('show');
-        void resultCard.offsetWidth; // Trigger reflow to restart animation
-        resultCard.classList.add('show');
+        // Calculate Totals
+        let subtotal = 0;
+        cart.forEach(item => subtotal += item.price * item.qty);
         
-        console.log("Bill generated:", bill);
+        const gst = subtotal * 0.18;
+        const total = subtotal + gst;
+
+        // Display Invoice Details
+        document.getElementById('displayOrderId').innerText = orderId;
+        document.getElementById('displayDate').innerText = date;
+        document.getElementById('displayCustomerName').innerText = customerName;
+
+        // Populate Items
+        const invoiceItemsContainer = document.getElementById('invoiceItems');
+        invoiceItemsContainer.innerHTML = '';
+        
+        cart.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'receipt-row';
+            row.innerHTML = `
+                <span>${item.qty}x ${item.productName}</span>
+                <span>₹${(item.price * item.qty).toFixed(2)}</span>
+            `;
+            invoiceItemsContainer.appendChild(row);
+        });
+
+        document.getElementById('displaySubtotal').innerText = '₹' + subtotal.toFixed(2);
+        document.getElementById('displayGST').innerText = '₹' + gst.toFixed(2);
+        document.getElementById('displayTotalPrice').innerText = '₹' + total.toFixed(2);
+
+        document.getElementById('resultCard').classList.add('show');
+        
+        // Optionally clear cart after successful checkout invoice generation
+        localStorage.removeItem('lumi_cart');
     });
 });
