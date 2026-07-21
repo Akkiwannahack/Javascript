@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SIT Student Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: red;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>SIT Student Login</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>Login ID (Name):</label><br>
+        <input type="text" id="loginId"><br>
+        <div class="error" id="loginIdError"></div>
+
+        <label>Password:</label><br>
+        <input type="password" id="password"><br>
+        <div class="error" id="passwordError"></div>
+
+        <input type="submit" value="Login">
+        <div class="success" id="successMessage"></div>
+    </form>
+
+    <script>
+        function validateForm() {
+            var loginId = document.getElementById('loginId').value.trim();
+            var password = document.getElementById('password').value;
+
+            var loginIdError = document.getElementById('loginIdError');
+            var passwordError = document.getElementById('passwordError');
+            var successMessage = document.getElementById('successMessage');
+
+            // Reset
+            loginIdError.innerHTML = '';
+            passwordError.innerHTML = '';
+            successMessage.innerHTML = '';
+
+            var isValid = true;
+
+            // Validate Login ID
+            if (loginId === '') {
+                loginIdError.innerHTML = 'Login ID is required.';
+                isValid = false;
+            } else if (loginId.length < 3) {
+                loginIdError.innerHTML = 'Login ID must be at least 3 characters.';
+                isValid = false;
+            } else if (!/^[a-zA-Z\s]+$/.test(loginId)) {
+                loginIdError.innerHTML = 'Login ID can only contain letters and spaces.';
+                isValid = false;
+            }
+
+            // Validate Password
+            if (password === '') {
+                passwordError.innerHTML = 'Password is required.';
+                isValid = false;
+            } else {
+                var pwdErrors = [];
+                if (password.length < 8) pwdErrors.push('at least 8 characters');
+                if (!/[A-Z]/.test(password)) pwdErrors.push('one uppercase letter');
+                if (!/[a-z]/.test(password)) pwdErrors.push('one lowercase letter');
+                if (!/[0-9]/.test(password)) pwdErrors.push('one integer');
+                if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) pwdErrors.push('one special character');
+
+                if (pwdErrors.length > 0) {
+                    passwordError.innerHTML = 'Password must contain: ' + pwdErrors.join(', ') + '.';
+                    isValid = false;
+                }
+            }
+
+            if (isValid) {
+                successMessage.innerHTML = 'Login Successful!';
+            }
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>
