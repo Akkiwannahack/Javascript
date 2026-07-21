@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="student-page">
+    <div class="container left-aligned">
+        <h1 class="large-bold-heading">Student Information Form</h1>
+        
+        <!-- Student Form -->
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" required>
+                    <option value="" disabled selected>Select Department</option>
+                    <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+                    <option value="Robotics & AI">Robotics & AI</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">Submit Information</button>
+        </form>
+
+        <!-- Result Area (Hidden initially) -->
+        <div id="resultArea" style="display: none;">
+            <h2>Submitted Details</h2>
+            <p><strong>Name:</strong> <span id="displayName"></span></p>
+            <p><strong>Department:</strong> <span id="displayDept"></span></p>
+            
+            <a href="departments.html" class="nav-link">← Departments Page</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* General Resets and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.left-aligned {
+    text-align: left;
+}
+
+/* Page Specific Backgrounds */
+.home-page {
+    background-color: #add8e6; /* Light blue background */
+}
+
+.student-page {
+    background-color: #90ee90; /* Light green background */
+}
+
+.departments-page {
+    background-color: #add8e6; /* Light blue background */
+}
+
+/* Typography and Spacing */
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.large-bold-heading {
+    font-size: 32px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Departments List */
+.department-list {
+    list-style-position: inside;
+    text-align: left;
+    margin: 0 auto 30px auto;
+    max-width: 350px; /* enough width for items */
+}
+
+.department-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Links */
+.nav-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.red-link {
+    color: red;
+}
