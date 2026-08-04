@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <img width="960" height="600" alt="w1-1" src="https://github.com/user-attachments/assets/2cce123b-6488-4c39-91cd-36afe23aaa52" />
 <img width="960" height="600" alt="w1-2" src="https://github.com/user-attachments/assets/8b742ed5-d411-493f-a386-6143afe0afc2" />
 <img width="960" height="600" alt="w1-3" src="https://github.com/user-attachments/assets/37bb7d81-7b12-4ddc-92d6-e9921bbe0e06" />
-> **[Placeholder for User to Insert Screenshots of Form Submission and Result Display]**
+
 
 **8. Result/Conclusion:**
 Successfully designed and implemented a multi-page website utilizing HTML, CSS, and JavaScript. We demonstrated page navigation, form validation, event handling, and dynamic DOM manipulation by capturing form inputs and rendering them back onto the webpage without reloading the page.
