@@ -1,4 +1,4 @@
-<img width="960" height="600" alt="w1-1" src="https://github.com/user-attachments/assets/2cce123b-6488-4c39-91cd-36afe23aaa52" />
+
 # Experiment / Case Study No.: 1
 
 **1. Experiment Title:**
@@ -309,7 +309,9 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 **7. Output:**
-*(Attach screenshot/output here. PRN: 24070521003, Name: Akshat Digalwar. File Path with your name is mandatory in the screenshot)*
+<img width="960" height="600" alt="w1-1" src="https://github.com/user-attachments/assets/2cce123b-6488-4c39-91cd-36afe23aaa52" />
+<img width="960" height="600" alt="w1-2" src="https://github.com/user-attachments/assets/8b742ed5-d411-493f-a386-6143afe0afc2" />
+<img width="960" height="600" alt="w1-3" src="https://github.com/user-attachments/assets/37bb7d81-7b12-4ddc-92d6-e9921bbe0e06" />
 > **[Placeholder for User to Insert Screenshots of Form Submission and Result Display]**
 
 **8. Result/Conclusion:**
