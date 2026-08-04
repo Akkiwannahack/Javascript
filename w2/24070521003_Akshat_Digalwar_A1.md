@@ -336,8 +336,12 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 **7. Output:**
-*(Attach screenshot/output here. PRN: 24070521003, Name: Akshat Digalwar. File Path with your name is mandatory in the screenshot)*
-> **[Placeholder for User to Insert Screenshot of Generated Invoice after Form Submission]**
+<img width="960" height="600" alt="{1C2FE634-1FFC-4C8B-A9E8-8BECC16F4877}" src="https://github.com/user-attachments/assets/006f26e7-22fa-400a-8bfa-a18160577a33" />
+<img width="960" height="600" alt="{930EB093-F975-4568-941F-9EC31CB33DB6}" src="https://github.com/user-attachments/assets/21759ea8-f963-4243-bbaa-3033c6e2f627" />
+<img width="960" height="600" alt="{E7F5D081-A987-4763-AEE7-0E9E88AEC06B}" src="https://github.com/user-attachments/assets/c5a74538-ff55-4360-9ec8-9661db6dacfc" />
+
+
+>
 
 **8. Result/Conclusion:**
 Successfully implemented a Product Billing Calculator with a dynamic Invoice Generator. The web app uses HTML/CSS for a responsive interface and JavaScript to retrieve cart items from LocalStorage, compute subtotal, apply an 18% GST, and manipulate the DOM to display the formatted receipt to the user.
