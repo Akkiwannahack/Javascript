@@ -1,3 +1,4 @@
+<img width="960" height="600" alt="w1-1" src="https://github.com/user-attachments/assets/2cce123b-6488-4c39-91cd-36afe23aaa52" />
 # Experiment / Case Study No.: 1
 
 **1. Experiment Title:**
