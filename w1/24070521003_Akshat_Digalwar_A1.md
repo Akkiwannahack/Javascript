@@ -1,7 +1,8 @@
 # Experiment / Case Study No.: 1
 
 **1. Experiment Title:**
-Design and implement a basic multi-page educational institute website using HTML and CSS.
+Demonstration of Inline, Internal and External JavaScript, Console Methods and Uses Information Webpage.
+
 
 **2. Software/Tools Required:**
 * Visual Studio Code (or any text editor)
