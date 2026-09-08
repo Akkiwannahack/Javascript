@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Registration Form</h2>
+        <p class="mandatory-text"><em>*Mandatory to fill</em></p>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <div class="input-wrapper">
+                    <input type="text" id="firstname" name="firstname" value="Akshat" required>
+                    <span class="required-star">*</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <div class="input-wrapper">
+                    <input type="text" id="lastname" name="lastname" value="Digalwar" required>
+                    <span class="required-star">*</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Birthday</label>
+                <div class="input-wrapper">
+                    <div class="birthday-dropdowns">
+                        <select name="day" id="day">
+                            <option value="">Day</option>
+                        </select>
+                        <select name="month" id="month">
+                            <option value="">Month</option>
+                        </select>
+                        <select name="year" id="year">
+                            <option value="">Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="input-wrapper">
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label class="radio-label" for="male">Male</label>
+                        
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label class="radio-label" for="female">Female</label>
+
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label class="radio-label" for="other">Other</label>
+                    </div>
+                    <span class="required-star">*</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <div class="input-wrapper">
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                    <span class="required-star">*</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" name="username" value="akshatdesk" required>
+                    <span class="required-star">*</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" value="akshat@example.com" required>
+                    <span class="required-star">*</span>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms & conditions.</label>
+            </div>
+
+            <div class="submit-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div id="error-message" class="error-message"></div>
+    </div>
+    
+    <footer>
+        Akshat Digalwar 24070521003
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

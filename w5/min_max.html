@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pharma Store Inventory Analyzer</title>
+        <style>
+            :root {
+                --bg-color: #f5f5dc; /* Simple Beige */
+                --text-color: #333;
+                --primary: #8b7355;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                margin: 0;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 30px;
+                border: 1px solid #d2b48c;
+            }
+
+            h2 {
+                text-align: center;
+                color: var(--primary);
+                margin-top: 0;
+                margin-bottom: 25px;
+            }
+
+            .section {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px dashed #ccc;
+            }
+            .section:last-of-type {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: var(--primary);
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 12px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                font-family: Arial, sans-serif;
+            }
+
+            button {
+                background-color: var(--primary);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            button:hover {
+                background-color: #6b563e;
+            }
+
+            .output-box {
+                background-color: #fafafa;
+                padding: 15px;
+                border: 1px solid #ccc;
+                min-height: 80px;
+                word-break: break-word;
+                line-height: 1.6;
+            }
+
+            .footer {
+                text-align: center;
+                margin-top: 25px;
+                font-size: 0.9em;
+                color: #555;
+                font-weight: bold;
+            }
+            
+            hr {
+                border: 0;
+                border-top: 2px solid var(--primary);
+                margin: 25px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Pharma Store Analyzer</h2>
+            
+            <div class="section">
+                <label>1. Enter medicines and their prices:</label>
+                <input type="text" id="numInput" placeholder="e.g. Paracetamol: 50, Aspirin: 30, Amoxicillin: 120">
+                <button onclick="findMinMax()">Find Cheapest & Most Expensive</button>
+            </div>
+
+            <hr>
+
+            <div class="section">
+                <label>Inventory Output:</label>
+                <div id="output" class="output-box">
+                    <em>No data yet.</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Akshat Digalwar | PRN: 24070521003
+        </div>
+
+        <script>
+            function findMinMax() {
+                let inputStr = document.getElementById("numInput").value;
+                const outputBox = document.getElementById("output");
+
+                if (!inputStr) {
+                    outputBox.innerHTML = '<span style="color:red">Please enter some medicines and prices.</span>';
+                    return;
+                }
+                
+                // Parse input string into an object
+                let itemsStrArray = inputStr.split(',');
+                let pharmaObj = {};
+                for(let i = 0; i < itemsStrArray.length; i++) {
+                    let parts = itemsStrArray[i].split(':');
+                    if (parts.length === 2) {
+                        let medicineName = parts[0].trim();
+                        let price = parseFloat(parts[1].trim());
+                        if(!isNaN(price) && medicineName !== "") {
+                            pharmaObj[medicineName] = price;
+                        }
+                    }
+                }
+
+                let keys = Object.keys(pharmaObj);
+                if (keys.length === 0) {
+                    outputBox.innerHTML = '<span style="color:red">Invalid format. Please use "Medicine: Price" (e.g. Aspirin: 30).</span>';
+                    return;
+                }
+
+                // Find min and max
+                let maxMed = keys[0];
+                let minMed = keys[0];
+
+                for (let i = 1; i < keys.length; i++) {
+                    if (pharmaObj[keys[i]] > pharmaObj[maxMed]) {
+                        maxMed = keys[i];
+                    }
+                    if (pharmaObj[keys[i]] < pharmaObj[minMed]) {
+                        minMed = keys[i];
+                    }
+                }
+
+                // Format the object for display
+                let objDisplay = Object.entries(pharmaObj)
+                    .map(([med, price]) => `${med} (₹${price})`)
+                    .join(', ');
+                
+                outputBox.innerHTML = `
+                    <strong>Store Inventory:</strong> ${objDisplay}<br><br>
+                    <strong>Most Expensive Medicine:</strong> ${maxMed} at ₹${pharmaObj[maxMed]}<br>
+                    <strong>Cheapest Medicine:</strong> ${minMed} at ₹${pharmaObj[minMed]}
+                `;
+            }
+        </script>
+    </body>
+</html>

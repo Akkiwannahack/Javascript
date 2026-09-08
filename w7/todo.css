@@ -1,0 +1,148 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #F5F5DC; /* Beige */
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+    color: #4a4036;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #8b7355;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.todo-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(139, 115, 85, 0.15);
+    width: 420px;
+    padding: 35px 40px;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #d3c7b6;
+    border-radius: 6px 0 0 6px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    outline: none;
+    background-color: #fdfbf7;
+    transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+    border-color: #8b7355;
+    box-shadow: 0 0 5px rgba(139, 115, 85, 0.2);
+}
+
+#addButton {
+    padding: 12px 25px;
+    background-color: #8b7355;
+    color: white;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#addButton:hover {
+    background-color: #705b41;
+}
+
+#addButton:active {
+    transform: scale(0.98);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    background-color: #fdfbf7;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #eaddcf;
+    border-left: 5px solid #8b7355;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+li:hover {
+    background-color: #f5f0e6;
+    transform: translateX(3px);
+}
+
+.task-text {
+    flex: 1;
+    margin-left: 12px;
+    font-size: 18px;
+    word-break: break-all;
+    transition: color 0.2s;
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    color: #a99a86;
+}
+
+.completed {
+    border-left-color: #c4b5a2;
+    background-color: #f9f7f4;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 0 8px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+    transform: scale(1.1);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #8b7355;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #8b7355;
+}

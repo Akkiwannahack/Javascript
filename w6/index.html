@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Analyzer</h1>
+        
+        <div class="section">
+            <label>1. Original Paragraph:</label>
+            <textarea id="paraInput" rows="5" placeholder="Enter your paragraph here..."></textarea>
+        </div>
+
+        <div class="section">
+            <label>2. Find All Vowels:</label>
+            <button onclick="findVowels()">Find Vowels</button>
+        </div>
+
+        <div class="section">
+            <label>3. Replace Word:</label>
+            <input type="text" id="wordToReplace" placeholder="Word to replace">
+            <input type="text" id="replacementWord" placeholder="Replacement word">
+            <br>
+            <button onclick="replaceWord()">Replace</button>
+        </div>
+
+        <div class="section">
+            <label>4. Position of Word:</label>
+            <input type="text" id="wordToFind" placeholder="Word to find">
+            <br>
+            <button onclick="findPosition()">Find Position</button>
+        </div>
+
+        <div class="section">
+            <label>5. Regex - Email Validation:</label>
+            <input type="text" id="emailToValidate" placeholder="Enter email to validate">
+            <br>
+            <button onclick="validateEmail()">Validate Email</button>
+        </div>
+
+        <div class="section">
+            <label>6. Regex - Extract Email:</label>
+            <button onclick="extractEmails()">Extract Emails from Paragraph</button>
+        </div>
+
+        <div class="section">
+            <label>7. Reverse Paragraph:</label>
+            <button onclick="reverseParagraph()">Reverse</button>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <label>Output:</label>
+            <div id="mainResult" class="output-box">
+                <em>No output yet.</em>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Akshat Digalwar | PRN: 24070521003</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
