@@ -3,43 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMI - Premium Top-Ups</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Theme Preference</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="index.html" class="nav-left">
-            <!-- Using a fallback text in alt in case image isn't available yet -->
-            <img src="images/logo.jfif" alt="LUMI Logo" class="nav-logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\'><rect width=\'40\' height=\'40\' fill=\'%232563EB\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dominant-baseline=\'middle\'>L</text></svg>'">
-            <span class="nav-title">LUMI</span>
-        </a>
-        <div class="nav-right">
-            <input type="text" id="searchInput" class="search-bar" placeholder="Search games...">
-            <a href="cart.html" class="cart-link">
-                <span>🛒 Cart</span>
-                <span class="cart-badge" id="cartBadge">0</span>
-            </a>
+    <div class="container">
+        <h1>Theme Preferences</h1>
+        <p>Select your preferred theme for the application.</p>
+        
+        <div class="theme-buttons">
+            <button id="btn-light" class="theme-btn">Light Theme</button>
+            <button id="btn-dark" class="theme-btn">Dark Theme</button>
+            <button id="btn-clear" class="theme-btn">Clear Theme</button>
         </div>
-    </nav>
 
-    <!-- Hero -->
-    <header class="hero">
-        <h1>Welcome to LUMI</h1>
-        <p>Premium Top-Ups for Your Favorite Gacha Games</p>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
-        <div class="games-grid" id="gamesContainer">
-            <!-- Games will be injected here by JS to keep HTML clean -->
+        <div class="demo-box">
+            <h2>Preview</h2>
+            <p>This is how your content will look with the selected theme.</p>
         </div>
-    </main>
-
-    <!-- Toast Notification Container -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <script src="js/script.js"></script>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
